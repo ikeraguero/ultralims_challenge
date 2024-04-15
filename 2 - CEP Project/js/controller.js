@@ -2,6 +2,7 @@
 import * as model from './model.js'
 import searchView from './views/searchView.js'
 import cepView from './views/cepView.js'
+import bookmarksView from './views/bookmarksView.js'
 
 
 const controlCep = async function() {
@@ -20,5 +21,6 @@ const controlCep = async function() {
 
 const init = function() {
     searchView.addSearchHandler(controlCep)
+    bookmarksView.renderBookmarks(model.bookmarks)
 }
 init()

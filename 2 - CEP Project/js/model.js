@@ -4,10 +4,7 @@ export const state = {
     cep: {}
 }
 
-export const bookmarks = []
-
-let retrievedArray = JSON.parse(localStorage.getItem('bookmarks'));
-console.log(retrievedArray);
+export let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
 
 
 export const loadCep = async function(id) {
@@ -28,3 +25,7 @@ export const loadCep = async function(id) {
         
     }
 }
+
+export const updateBookmarksInLocalStorage = () => {
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+};

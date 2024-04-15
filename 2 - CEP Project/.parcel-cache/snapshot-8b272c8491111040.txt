@@ -1,10 +1,11 @@
-5855
-70/home/ikeraguero/ultralims/2 - CEP Project/dist/index.3a01df49.css.map1713139571321264310 0
-66/home/ikeraguero/ultralims/2 - CEP Project/dist/index.3a01df49.css1713139571316264270 0
-69/home/ikeraguero/ultralims/2 - CEP Project/dist/index.850bd9e5.js.map1713139571209263414 0
-65/home/ikeraguero/ultralims/2 - CEP Project/dist/index.850bd9e5.js1713139571207263398 0
-58/home/ikeraguero/ultralims/2 - CEP Project/dist/index.html1713139570938261247 0
-47/home/ikeraguero/ultralims/2 - CEP Project/dist1713139571321264310 1
+5856
+68/home/ikeraguero/ultralims/2 - CEP Project/js/views/bookmarksView.js1713192170785391351 0
+70/home/ikeraguero/ultralims/2 - CEP Project/dist/index.3a01df49.css.map1713149336299945439 0
+66/home/ikeraguero/ultralims/2 - CEP Project/dist/index.3a01df49.css1713149336297945424 0
+69/home/ikeraguero/ultralims/2 - CEP Project/dist/index.850bd9e5.js.map1713149336167944431 0
+65/home/ikeraguero/ultralims/2 - CEP Project/dist/index.850bd9e5.js1713149336165944415 0
+58/home/ikeraguero/ultralims/2 - CEP Project/dist/index.html1713149336016943277 0
+47/home/ikeraguero/ultralims/2 - CEP Project/dist1713149336299945439 1
 60/home/ikeraguero/ultralims/2 - CEP Project/package-lock.json1713123796381084694 0
 74/home/ikeraguero/ultralims/2 - CEP Project/node_modules/.package-lock.json1713123796495085835 0
 65/home/ikeraguero/ultralims/2 - CEP Project/node_modules/.bin/svgo1713123792417045041 0
@@ -1769,7 +1770,7 @@
 69/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@parcel/utils1713123695461075142 1
 118/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@parcel/optimizer-htmlnano/node_modules/svgo/lib/svgo/jsAPI.js1713123698987110414 0
 89/home/ikeraguero/ultralims/2 - CEP Project/node_modules/htmlparser2/lib/WritableStream.js1713123693942059947 0
-54/home/ikeraguero/ultralims/2 - CEP Project/js/model.js1713148974009176909 0
+54/home/ikeraguero/ultralims/2 - CEP Project/js/model.js1713192344127848116 0
 90/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@parcel/codeframe/lib/codeframe.js1713123696928089817 0
 100/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@parcel/workers/lib/process/ProcessWorker.js1713123694472065248 0
 74/home/ikeraguero/ultralims/2 - CEP Project/node_modules/micromatch/LICENSE1713123693965060177 0
@@ -2086,7 +2087,7 @@
 76/home/ikeraguero/ultralims/2 - CEP Project/node_modules/semver/ranges/gtr.js1713123696585086386 0
 102/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@swc/helpers/_/_iterable_to_array/package.json1713123697469095229 0
 105/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@parcel/transformer-babel/src/BabelTransformer.js1713123696352084055 0
-53/home/ikeraguero/ultralims/2 - CEP Project/index.html1713148380533653742 0
+53/home/ikeraguero/ultralims/2 - CEP Project/index.html1713191246924990211 0
 79/home/ikeraguero/ultralims/2 - CEP Project/node_modules/domhandler/lib/index.js1713123693977060297 0
 103/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@swc/helpers/_/_object_without_properties_loose1713123697500095539 1
 98/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@swc/helpers/_/_class_private_field_update1713123697348094018 1
@@ -2366,7 +2367,7 @@
 105/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@swc/helpers/_/_class_name_tdz_error/package.json1713123697319093728 0
 118/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@parcel/optimizer-htmlnano/node_modules/svgo/lib/svgo/tools.js1713123699035110894 0
 133/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@parcel/optimizer-svgo/node_modules/css-tree/lib/syntax/node/ClassSelector.js1713123696646086996 0
-59/home/ikeraguero/ultralims/2 - CEP Project/js/controller.js1713148304280074578 0
+59/home/ikeraguero/ultralims/2 - CEP Project/js/controller.js1713192505646205516 0
 89/home/ikeraguero/ultralims/2 - CEP Project/node_modules/caniuse-lite/data/features/svg.js1713123697519095729 0
 104/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@parcel/runtime-js/src/helpers/get-worker-url.js1713123694624066769 0
 112/home/ikeraguero/ultralims/2 - CEP Project/node_modules/csso/node_modules/css-tree/lib/syntax/node/IdSelector.js1713123697256093098 0
@@ -2669,7 +2670,7 @@
 125/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@parcel/optimizer-svgo/node_modules/css-tree/lib/syntax/node/Block.js1713123696590086436 0
 83/home/ikeraguero/ultralims/2 - CEP Project/node_modules/dom-serializer/node_modules1713123688600006508 1
 114/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@swc/helpers/_/_class_apply_descriptor_update/package.json1713123697295093488 0
-62/home/ikeraguero/ultralims/2 - CEP Project/js/views/cepView.js1713149330868903935 0
+62/home/ikeraguero/ultralims/2 - CEP Project/js/views/cepView.js1713192542068511613 0
 105/home/ikeraguero/ultralims/2 - CEP Project/node_modules/ordered-binary/.nyc_output/processinfo/index.json1713123694144061967 0
 71/home/ikeraguero/ultralims/2 - CEP Project/node_modules/htmlparser2/lib1713123694082061347 1
 88/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@parcel/workers/test/integration1713123693994060467 1
@@ -3168,7 +3169,7 @@
 86/home/ikeraguero/ultralims/2 - CEP Project/node_modules/css-what/lib/es/parse.d.ts.map1713123694842068950 0
 110/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@parcel/optimizer-htmlnano/node_modules/svgo/README.md1713123699037110914 0
 120/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@parcel/optimizer-svgo/node_modules/css-tree/lib/parser/index.js1713123697079091327 0
-52/home/ikeraguero/ultralims/2 - CEP Project/style.css1713148375437615037 0
+52/home/ikeraguero/ultralims/2 - CEP Project/style.css1713191719766662771 0
 115/home/ikeraguero/ultralims/2 - CEP Project/node_modules/csso/node_modules/css-tree/cjs/syntax/node/UnicodeRange.cjs1713123696988090417 0
 108/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@parcel/package-manager/test/fixtures/packages/peers1713123695432074852 1
 132/home/ikeraguero/ultralims/2 - CEP Project/node_modules/@parcel/optimizer-htmlnano/node_modules/mdn-data/api/inheritance.schema.json1713123696598086516 0

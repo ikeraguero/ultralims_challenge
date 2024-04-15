@@ -1,4 +1,7 @@
 import { bookmarks } from "../model";
+import { updateBookmarksInLocalStorage } from "../model";
+import bookmarksView from "./bookmarksView";
+import renderBookmarks from './bookmarksView';
 
 class CepView {
     #parentEl = document.querySelector(".main")
@@ -9,7 +12,6 @@ class CepView {
     }
 
     render(data) {
-        console.log(data);
         this.data = data        
         const markup = this.#generateMarkup(data);
         this.#clear()
@@ -35,12 +37,8 @@ class CepView {
 
     save() {
         bookmarks.push(this.data)
-        this.#setLocalStorage()
-        
-    }
-
-    #setLocalStorage() {
-        localStorage.setItem("bookmarks", JSON.stringify(bookmarks))
+        updateBookmarksInLocalStorage();
+        bookmarksView.renderBookmarks(bookmarks)
     }
 }
 

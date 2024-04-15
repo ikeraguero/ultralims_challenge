@@ -5,6 +5,7 @@
 }
 
 html {
+  background: linear-gradient(90deg, #20da56 23%, #00ff9c 100%);
   font-size: 62.5%;
   overflow-x: hidden;
 }
@@ -55,5 +56,38 @@ body {
 
 .cep-list {
   list-style: none;
+}
+
+.saved-list {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  overflow-y: scroll;
+}
+
+.bookmarks-container {
+  background-color: #7fffd4;
+  width: 85%;
+  margin-top: 2.4rem;
+  padding: 1.6rem 1.8rem;
+}
+
+.bookmarks-container:not(:first-child) {
+  margin-top: 1.2rem;
+}
+
+.cep-number {
+  margin-bottom: 1.2rem;
+}
+
+.cep-description-list {
+  justify-content: space-between;
+  list-style: none;
+  display: flex;
+}
+
+.cep-description-list li {
+  flex-direction: column;
+  display: flex;
 }
 /*# sourceMappingURL=index.3a01df49.css.map */

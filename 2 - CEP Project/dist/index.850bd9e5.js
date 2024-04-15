@@ -590,6 +590,8 @@ var _searchViewJs = require("./views/searchView.js");
 var _searchViewJsDefault = parcelHelpers.interopDefault(_searchViewJs);
 var _cepViewJs = require("./views/cepView.js");
 var _cepViewJsDefault = parcelHelpers.interopDefault(_cepViewJs);
+var _bookmarksViewJs = require("./views/bookmarksView.js");
+var _bookmarksViewJsDefault = parcelHelpers.interopDefault(_bookmarksViewJs);
 const controlCep = async function() {
     try {
         const id = (0, _searchViewJsDefault.default).getCepNumber();
@@ -602,22 +604,22 @@ const controlCep = async function() {
 };
 const init = function() {
     (0, _searchViewJsDefault.default).addSearchHandler(controlCep);
+    (0, _bookmarksViewJsDefault.default).renderBookmarks(_modelJs.bookmarks);
 };
 init();
 
-},{"./model.js":"Py0LO","./views/searchView.js":"jYSxB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/cepView.js":"gr5ws"}],"Py0LO":[function(require,module,exports) {
+},{"./model.js":"Py0LO","./views/searchView.js":"jYSxB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/cepView.js":"gr5ws","./views/bookmarksView.js":"1Cvmo"}],"Py0LO":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "state", ()=>state);
 parcelHelpers.export(exports, "bookmarks", ()=>bookmarks);
 parcelHelpers.export(exports, "loadCep", ()=>loadCep);
+parcelHelpers.export(exports, "updateBookmarksInLocalStorage", ()=>updateBookmarksInLocalStorage);
 var _helper = require("./helper");
 const state = {
     cep: {}
 };
-const bookmarks = [];
-let retrievedArray = JSON.parse(localStorage.getItem("bookmarks"));
-console.log(retrievedArray);
+let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
 const loadCep = async function(id) {
     try {
         const data = await (0, _helper.getJSON)(`https://viacep.com.br/ws/${id}/json`);
@@ -634,6 +636,9 @@ const loadCep = async function(id) {
     } catch (err) {
         console.log(err);
     }
+};
+const updateBookmarksInLocalStorage = ()=>{
+    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
 };
 
 },{"./helper":"6fitd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6fitd":[function(require,module,exports) {
@@ -712,6 +717,8 @@ exports.default = new SearchView;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _model = require("../model");
+var _bookmarksView = require("./bookmarksView");
+var _bookmarksViewDefault = parcelHelpers.interopDefault(_bookmarksView);
 class CepView {
     #parentEl = document.querySelector(".main");
     data;
@@ -719,7 +726,6 @@ class CepView {
         document.querySelector(".save-button").addEventListener("click", handler);
     }
     render(data) {
-        console.log(data);
         this.data = data;
         const markup = this.#generateMarkup(data);
         this.#clear();
@@ -742,14 +748,51 @@ class CepView {
     }
     save() {
         (0, _model.bookmarks).push(this.data);
-        this.#setLocalStorage();
-    }
-    #setLocalStorage() {
-        localStorage.setItem("bookmarks", JSON.stringify((0, _model.bookmarks)));
+        (0, _model.updateBookmarksInLocalStorage)();
+        (0, _bookmarksViewDefault.default).renderBookmarks((0, _model.bookmarks));
     }
 }
 exports.default = new CepView;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../model":"Py0LO"}]},["fjwbG","1GgH0"], "1GgH0", "parcelRequirec5df")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../model":"Py0LO","./bookmarksView":"1Cvmo"}],"1Cvmo":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class BookmarksView {
+    #parentEl = document.querySelector(".saved-list");
+    renderBookmarks(arr) {
+        this.#parentEl.innerHTML = "";
+        arr.forEach((el)=>{
+            const markup = this.#generateMarkup(el);
+            this.#parentEl.insertAdjacentHTML("afterbegin", markup);
+        });
+    }
+    #generateMarkup(data) {
+        return `<div class="bookmarks-container">
+        <div class="cep-number"><span>89232-040</span></div>
+        <div class="cep-description">
+            <ul class="cep-description-list">
+                <li>
+                    <span>UF:</span>
+                    <span>${data.cep}</span>
+                </li>
+                <li><span>Cidade:</span>
+                    <span>${data.city}</span></li>
+                <li>
+                    <span>Bairro:</span>
+                    <span>${data.neighbourhood}</span>
+                </li>
+                <li>
+                    <span>IBGE:</span>
+                    <span>${data.ibge}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    `;
+    }
+}
+exports.default = new BookmarksView;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["fjwbG","1GgH0"], "1GgH0", "parcelRequirec5df")
 
 //# sourceMappingURL=index.850bd9e5.js.map
