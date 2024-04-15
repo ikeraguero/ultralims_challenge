@@ -733,13 +733,15 @@ class CepView {
         this.addButtonHandler(this.save.bind(this));
     }
     #generateMarkup(data) {
-        return `<li class="cep-list">
-        <ul>CEP: ${data.cep}</ul>
-        <ul>Cidade: ${data.city}</ul>
-        <ul>Bairro: ${data.neighbourhood}</ul>
-        <ul>Estado: ${data.state}</ul>
-        <ul>IBGE: ${data.ibge}</ul>
-    </li>
+        return `
+        <h1 class="main-title">Informa\xe7\xf5es encontradas!</h1>
+        <ul class="cep-list">
+        <li><span class='cep-list-property'>CEP </span><span class='cep-list-value'>${data.cep}</span></li>
+        <li><span class='cep-list-property'>CIDADE </span><span class='cep-list-value'>${data.city}</span></li>
+        <li><span class='cep-list-property'>BAIRRO </span><span class='cep-list-value'>${data.neighbourhood}</span></li>
+        <li><span class='cep-list-property'>ESTADO </span><span class='cep-list-value'>${data.state}</span></li>
+        <li><span class='cep-list-property'>IBGE </span><span class='cep-list-value'>${data.ibge}</span></li>
+    </ul>
     <div class="save-button">SALVAR</div>
     `;
     }
@@ -768,22 +770,22 @@ class BookmarksView {
     }
     #generateMarkup(data) {
         return `<div class="bookmarks-container">
-        <div class="cep-number"><span>89232-040</span></div>
+        <div class="cep-number"><span>${data.cep}</span></div>
         <div class="cep-description">
             <ul class="cep-description-list">
                 <li>
                     <span>UF:</span>
-                    <span>${data.cep}</span>
+                    <span class='bookmark-value'>${data.state}</span>
                 </li>
                 <li><span>Cidade:</span>
-                    <span>${data.city}</span></li>
+                    <span class='bookmark-value'>${data.city}</span></li>
                 <li>
                     <span>Bairro:</span>
-                    <span>${data.neighbourhood}</span>
+                    <span class='bookmark-value'>${data.neighbourhood}</span>
                 </li>
                 <li>
                     <span>IBGE:</span>
-                    <span>${data.ibge}</span>
+                    <span class='bookmark-value'>${data.ibge}</span>
                 </li>
             </ul>
         </div>

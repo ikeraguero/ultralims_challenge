@@ -1,3 +1,14 @@
+:root {
+    --color-brand--1: #ffb545;
+    --color-brand--2: #00c46a;
+  
+    --color-dark--1: #2d3439;
+    --color-dark--2: #42484d;
+    --color-light--1: #aaa;
+    --color-light--2: #ececec;
+    --color-light--3: rgb(214, 222, 224);
+  }
+
 * {
     padding: 0;
     margin: 0;
@@ -6,14 +17,9 @@
 
 
 html {
+    font-family: 'Poppins', sans-serif;
     font-size: 62.5%;
     overflow-x: hidden;
-    background: rgb(32, 218, 86);
-    background: linear-gradient(
-      90deg,
-      rgba(32, 218, 86, 1) 23%,
-      rgba(0, 255, 156, 1) 100%
-    );
   }
 
 body {
@@ -23,16 +29,23 @@ body {
     justify-content: center;
 }
 
+.logo {
+    color: #ececec;
+    font-size: 3.2rem;
+    font-weight: 600;
+}
+
 .main-container {
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.404);
     height: 92%;
     width: 85%;
-    border: 1px black solid;
     overflow: hidden;
+    border-radius: 9px;
 }
 
 .search-area {
-    background-color: blueviolet;
-    height: 10%;
+    background-color: var(--color-dark--1);;
+    height: 15%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -42,12 +55,13 @@ body {
 .main-area {
     display: grid;
     grid-template-columns: 0.5fr 1fr;
-    background-color: blue;
+    background-color: var(--color-dark--2);
     height: 100%;
+    position: relative;
 }
 
 .saved-list {
-    background-color: red !important;
+    background-color: var(--color-dark--1);
     min-height: 100%
 }
 
@@ -56,13 +70,59 @@ body {
     display: flex;
     flex-direction: column;
     gap: 3.2rem;
-    align-items: center;
+    align-items: start;
+    padding-left: 3.2rem;
     justify-content: center;
 }
 
 .cep-list {
     list-style: none;
+    font-size: 1.6rem;
 }
+
+.cep-list li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.6rem;
+    line-height: 1;
+}
+
+.cep-list-property {
+    color: #03a559;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.cep-list-value {
+    color: #ececec;
+    font-weight: 600;
+    font-size: 2.2rem;
+}
+
+.main-title {
+    color: #ececec;
+    position: absolute;
+    top: 6%;
+    text-align: center;
+    align-self: center;
+}
+
+.save-button {
+    color: #ececec;
+    background-color: #00c46a;
+    padding: 1.2rem 1.8rem 1.2rem 1.8rem;
+    border-radius: 9999px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s;
+    align-self: center;
+}
+
+.save-button:hover, .search-form button:hover{
+    background-color: #02a559;
+}
+
+
 
 .saved-list {
     display: flex;
@@ -73,9 +133,10 @@ body {
 
 .bookmarks-container {
     width: 85%;
-    background-color: aquamarine;
+    background-color: var(--color-dark--2);
     margin-top: 2.4rem;
     padding: 1.6rem 1.8rem 1.6rem 1.8rem;
+    border-radius: 9px;
 }
 
 
@@ -86,10 +147,15 @@ body {
     margin-bottom: 1.2rem;
 }
 
+.bookmark-value {
+    font-weight: 800;
+}
+
 .cep-description-list {
     list-style: none;
     display: flex;
     justify-content: space-between;
+    color: #ececec;
 }
 
 .cep-description-list li {
@@ -97,3 +163,30 @@ body {
     flex-direction: column;
 }
 
+.search-form input, .search-form button {
+    padding: 1.2rem 2.4rem 1.2rem 2.4rem;
+    border-radius: 9999px;
+}
+
+.search-form input {
+    background-color: var(--color-dark--1);
+    color: #ececec;
+    font-size: 1.8rem;
+    border: 1px #42484d solid
+}
+
+.search-form button {
+    color: #ececec;
+    font-weight: 600;
+    background-color: #00c46a;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px #42484d solid
+
+}
+
+.cep-number {
+    color: #ececec;
+    font-weight: 600;
+    font-size: 1.6rem;
+}

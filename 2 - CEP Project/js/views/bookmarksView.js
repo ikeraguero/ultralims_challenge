@@ -12,22 +12,22 @@ class BookmarksView {
 
     #generateMarkup(data) {
         return `<div class="bookmarks-container">
-        <div class="cep-number"><span>89232-040</span></div>
+        <div class="cep-number"><span>${data.cep}</span></div>
         <div class="cep-description">
             <ul class="cep-description-list">
                 <li>
                     <span>UF:</span>
-                    <span>${data.cep}</span>
+                    <span class='bookmark-value'>${data.state}</span>
                 </li>
                 <li><span>Cidade:</span>
-                    <span>${data.city}</span></li>
+                    <span class='bookmark-value'>${data.city}</span></li>
                 <li>
                     <span>Bairro:</span>
-                    <span>${data.neighbourhood}</span>
+                    <span class='bookmark-value'>${data.neighbourhood}</span>
                 </li>
                 <li>
                     <span>IBGE:</span>
-                    <span>${data.ibge}</span>
+                    <span class='bookmark-value'>${data.ibge}</span>
                 </li>
             </ul>
         </div>

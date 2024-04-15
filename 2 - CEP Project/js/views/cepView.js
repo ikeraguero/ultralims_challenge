@@ -20,13 +20,15 @@ class CepView {
     }
 
     #generateMarkup(data) {
-        return `<li class="cep-list">
-        <ul>CEP: ${data.cep}</ul>
-        <ul>Cidade: ${data.city}</ul>
-        <ul>Bairro: ${data.neighbourhood}</ul>
-        <ul>Estado: ${data.state}</ul>
-        <ul>IBGE: ${data.ibge}</ul>
-    </li>
+        return `
+        <h1 class="main-title">Informações encontradas!</h1>
+        <ul class="cep-list">
+        <li><span class='cep-list-property'>CEP </span><span class='cep-list-value'>${data.cep}</span></li>
+        <li><span class='cep-list-property'>CIDADE </span><span class='cep-list-value'>${data.city}</span></li>
+        <li><span class='cep-list-property'>BAIRRO </span><span class='cep-list-value'>${data.neighbourhood}</span></li>
+        <li><span class='cep-list-property'>ESTADO </span><span class='cep-list-value'>${data.state}</span></li>
+        <li><span class='cep-list-property'>IBGE </span><span class='cep-list-value'>${data.ibge}</span></li>
+    </ul>
     <div class="save-button">SALVAR</div>
     `
     }
