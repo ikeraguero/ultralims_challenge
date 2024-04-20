@@ -595,16 +595,20 @@ var _bookmarksViewJsDefault = parcelHelpers.interopDefault(_bookmarksViewJs);
 const controlCep = async function() {
     try {
         const id = (0, _searchViewJsDefault.default).getCepNumber();
+        if (!id) return;
+        (0, _cepViewJsDefault.default).renderSpinner();
         const cep = await _modelJs.loadCep(id);
         console.log(cep);
         (0, _cepViewJsDefault.default).render(cep);
     } catch (err) {
         console.log(err);
+        (0, _cepViewJsDefault.default).renderError();
     }
 };
 const init = function() {
     (0, _searchViewJsDefault.default).addSearchHandler(controlCep);
     (0, _bookmarksViewJsDefault.default).renderBookmarks(_modelJs.bookmarks);
+    (0, _cepViewJsDefault.default).init();
 };
 init();
 
@@ -719,11 +723,44 @@ parcelHelpers.defineInteropFlag(exports);
 var _model = require("../model");
 var _bookmarksView = require("./bookmarksView");
 var _bookmarksViewDefault = parcelHelpers.interopDefault(_bookmarksView);
+var _iconsSvg = require("../../img/icons.svg");
+var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 class CepView {
     #parentEl = document.querySelector(".main");
+    #message = "Algo errado ocorreu em sua busca. Tente novamente!";
     data;
     addButtonHandler(handler) {
         document.querySelector(".save-button").addEventListener("click", handler);
+    }
+    init() {
+        const markup = `<div class="main-message">
+        <svg class="main-icon">
+            <use href="${(0, _iconsSvgDefault.default)}#icon-smile"></use>
+          </svg>
+          <span class="main-text">Nenhuma informa\xe7\xe3o para exibir no momento! Comece procurando por um CEP existente!</span>
+    </div>`;
+        this.#parentEl.insertAdjacentHTML("afterbegin", markup);
+    }
+    renderSpinner() {
+        const markup = `<div class="spinner">
+    <svg>
+        <use href="${(0, _iconsSvgDefault.default)}#icon-loader"></use>
+    </svg>
+        </div>`;
+        this.#parentEl.innerHTML = "";
+        this.#parentEl.insertAdjacentHTML("afterbegin", markup);
+    }
+    renderError(message = this.#message) {
+        const markup = `<div class="error-message">
+        <div>
+          <svg class='error-icon'>
+            <use href="${(0, _iconsSvgDefault.default)}#icon-alert-triangle"></use>
+          </svg>
+        </div>
+        <span class='error-text'>${message}</span>
+      </div>`;
+        this.#clear();
+        this.#parentEl.insertAdjacentHTML("afterbegin", markup);
     }
     render(data) {
         this.data = data;
@@ -734,7 +771,6 @@ class CepView {
     }
     #generateMarkup(data) {
         return `
-        <h1 class="main-title">Informa\xe7\xf5es encontradas!</h1>
         <ul class="cep-list">
         <li><span class='cep-list-property'>CEP </span><span class='cep-list-value'>${data.cep}</span></li>
         <li><span class='cep-list-property'>CIDADE </span><span class='cep-list-value'>${data.city}</span></li>
@@ -756,7 +792,7 @@ class CepView {
 }
 exports.default = new CepView;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../model":"Py0LO","./bookmarksView":"1Cvmo"}],"1Cvmo":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../model":"Py0LO","./bookmarksView":"1Cvmo","../../img/icons.svg":"CexNY"}],"1Cvmo":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 class BookmarksView {
@@ -795,6 +831,44 @@ class BookmarksView {
 }
 exports.default = new BookmarksView;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["fjwbG","1GgH0"], "1GgH0", "parcelRequirec5df")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"CexNY":[function(require,module,exports) {
+module.exports = require("96114642720ecb2").getBundleURL("f3nP6") + "icons.c78699a6.svg" + "?" + Date.now();
+
+},{"96114642720ecb2":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}]},["fjwbG","1GgH0"], "1GgH0", "parcelRequirec5df")
 
 //# sourceMappingURL=index.850bd9e5.js.map

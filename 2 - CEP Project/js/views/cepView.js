@@ -1,14 +1,51 @@
 import { bookmarks } from "../model";
 import { updateBookmarksInLocalStorage } from "../model";
 import bookmarksView from "./bookmarksView";
-import renderBookmarks from './bookmarksView';
+import icons from '../../img/icons.svg'
 
 class CepView {
     #parentEl = document.querySelector(".main")
+    #message = 'Algo errado ocorreu em sua busca. Tente novamente!'
     data
 
     addButtonHandler(handler) {
         document.querySelector('.save-button').addEventListener('click', handler)
+    }
+
+    init() {
+        const markup = `<div class="main-message">
+        <svg class="main-icon">
+            <use href="${icons}#icon-smile"></use>
+          </svg>
+          <span class="main-text">Nenhuma informação para exibir no momento! Comece procurando por um CEP existente!</span>
+    </div>`
+
+    this.#parentEl.insertAdjacentHTML("afterbegin", markup)
+    }
+    
+    renderSpinner() {
+        const markup = `<div class="spinner">
+    <svg>
+        <use href="${icons}#icon-loader"></use>
+    </svg>
+        </div>`
+
+    this.#parentEl.innerHTML = ''    
+    this.#parentEl.insertAdjacentHTML("afterbegin", markup)
+    }
+
+    renderError(message = this.#message) {
+        const markup = `<div class="error-message">
+        <div>
+          <svg class='error-icon'>
+            <use href="${icons}#icon-alert-triangle"></use>
+          </svg>
+        </div>
+        <span class='error-text'>${message}</span>
+      </div>`
+
+    this.#clear();
+    this.#parentEl.insertAdjacentHTML('afterbegin', markup)
     }
 
     render(data) {
@@ -21,7 +58,6 @@ class CepView {
 
     #generateMarkup(data) {
         return `
-        <h1 class="main-title">Informações encontradas!</h1>
         <ul class="cep-list">
         <li><span class='cep-list-property'>CEP </span><span class='cep-list-value'>${data.cep}</span></li>
         <li><span class='cep-list-property'>CIDADE </span><span class='cep-list-value'>${data.city}</span></li>

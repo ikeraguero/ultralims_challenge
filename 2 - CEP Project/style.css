@@ -60,6 +60,38 @@ body {
     position: relative;
 }
 
+.main {
+    display: flex;
+    align-items: center !important;
+    justify-content: start !important;
+    margin-top: 4.8rem;
+}
+
+.main-message, .error-message {
+    display: flex;
+    gap: 1.4rem;
+    align-items: center;
+    width: 50%;
+}
+
+.main-icon{
+    width: 6.8rem;
+    height: 6.8rem;
+    filter: invert(52%) sepia(99%) saturate(5075%) hue-rotate(136deg) brightness(100%) contrast(98%);
+}
+
+.error-icon {
+    filter: invert(52%) sepia(99%) saturate(5075%) hue-rotate(136deg) brightness(100%) contrast(98%);
+    width: 4.8rem;
+    height: 4.8rem;
+}
+
+.main-text, .error-text {
+    color: #ececec;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
 .saved-list {
     background-color: var(--color-dark--1);
     min-height: 100%
@@ -185,8 +217,32 @@ body {
 
 }
 
+.search-icon {
+    width: 1.8rem;
+    height: 1.8rem;
+    filter: invert(99%) sepia(3%) saturate(363%) hue-rotate(278deg) brightness(116%) contrast(85%);
+}
+
+.search-button-content {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
 .cep-number {
     color: #ececec;
     font-weight: 600;
     font-size: 1.6rem;
+}
+
+.spinner {
+    margin: 5rem auto;
+    text-align: center;
+  
+    svg {
+      height: 6rem;
+      width: 6rem;
+      filter: invert(52%) sepia(99%) saturate(5075%) hue-rotate(136deg) brightness(100%) contrast(98%);
+      animation: rotate 2s infinite linear;
+    }
 }
