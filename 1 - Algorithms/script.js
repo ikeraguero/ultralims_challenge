@@ -10,7 +10,25 @@ Output: 4*/
 const arr = [5, 3, 4, 3, 5, 5, 3]
 
 const findNonRepeated = function (arr) {
+    const count = [];
+    for(let num of arr) {
+        //Utilizando index de num no array original para contar quantas vezes aparece
+        if(count[num]) {
+            count[num]++
+        } else {
+            count[num] = 1;
+        }
+    }
+    console.log(count);
+    
+    for (let num in count) {
+        if (count[num] !== 3) {
+            return parseInt(num);
+        }
+    }
 }
+console.log(findNonRepeated(arr));
+
 
 /* -----------------------------------------------------------------------------------------
 
