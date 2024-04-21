@@ -17,7 +17,7 @@ class CepView {
         <svg class="main-icon">
             <use href="${icons}#icon-smile"></use>
           </svg>
-          <span class="main-text">Nenhuma informação para exibir no momento! Comece procurando por um CEP existente!</span>
+          <span class="main-text">Comece procurando por um CEP existente ou selecionando CEPs salvos para exibir informação!</span>
     </div>`
 
     this.#parentEl.insertAdjacentHTML("afterbegin", markup)
@@ -49,11 +49,20 @@ class CepView {
     }
 
     render(data) {
-        this.data = data        
+        this.data = data
         const markup = this.#generateMarkup(data);
         this.#clear()
         this.#parentEl.insertAdjacentHTML('afterbegin', markup)
-        this.addButtonHandler(this.save.bind(this))
+        // Check if the data is already saved as bookmark
+        const isSaved = bookmarks.some(bookmark => bookmark.cep === data.cep);
+        
+        // If data is already saved, remove the save button
+        if (isSaved) {
+            const saveButton = document.querySelector('.save-button');
+            if (saveButton) saveButton.remove();
+        } else {
+            this.addButtonHandler(this.save.bind(this));
+        }
     }
 
     #generateMarkup(data) {

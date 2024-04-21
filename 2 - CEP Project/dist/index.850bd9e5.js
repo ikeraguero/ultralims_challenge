@@ -737,7 +737,7 @@ class CepView {
         <svg class="main-icon">
             <use href="${(0, _iconsSvgDefault.default)}#icon-smile"></use>
           </svg>
-          <span class="main-text">Nenhuma informa\xe7\xe3o para exibir no momento! Comece procurando por um CEP existente!</span>
+          <span class="main-text">Comece procurando por um CEP existente ou selecionando CEPs salvos para exibir informa\xe7\xe3o!</span>
     </div>`;
         this.#parentEl.insertAdjacentHTML("afterbegin", markup);
     }
@@ -767,7 +767,13 @@ class CepView {
         const markup = this.#generateMarkup(data);
         this.#clear();
         this.#parentEl.insertAdjacentHTML("afterbegin", markup);
-        this.addButtonHandler(this.save.bind(this));
+        // Check if the data is already saved as bookmark
+        const isSaved = (0, _model.bookmarks).some((bookmark)=>bookmark.cep === data.cep);
+        // If data is already saved, remove the save button
+        if (isSaved) {
+            const saveButton = document.querySelector(".save-button");
+            if (saveButton) saveButton.remove();
+        } else this.addButtonHandler(this.save.bind(this));
     }
     #generateMarkup(data) {
         return `
@@ -795,6 +801,9 @@ exports.default = new CepView;
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../model":"Py0LO","./bookmarksView":"1Cvmo","../../img/icons.svg":"CexNY"}],"1Cvmo":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+var _model = require("../model");
+var _cepView = require("./cepView");
+var _cepViewDefault = parcelHelpers.interopDefault(_cepView);
 class BookmarksView {
     #parentEl = document.querySelector(".saved-list");
     renderBookmarks(arr) {
@@ -802,6 +811,9 @@ class BookmarksView {
         arr.forEach((el)=>{
             const markup = this.#generateMarkup(el);
             this.#parentEl.insertAdjacentHTML("afterbegin", markup);
+            document.querySelector(".bookmarks-container").addEventListener("click", function(e) {
+                (0, _cepViewDefault.default).render(el);
+            });
         });
     }
     #generateMarkup(data) {
@@ -831,7 +843,7 @@ class BookmarksView {
 }
 exports.default = new BookmarksView;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"CexNY":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./cepView":"gr5ws","../model":"Py0LO"}],"CexNY":[function(require,module,exports) {
 module.exports = require("96114642720ecb2").getBundleURL("f3nP6") + "icons.c78699a6.svg" + "?" + Date.now();
 
 },{"96114642720ecb2":"lgJ39"}],"lgJ39":[function(require,module,exports) {

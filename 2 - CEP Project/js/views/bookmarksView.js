@@ -1,3 +1,5 @@
+import { bookmarks } from "../model";
+import cepView from "./cepView";
 
 class BookmarksView {
     #parentEl = document.querySelector('.saved-list')
@@ -7,6 +9,9 @@ class BookmarksView {
         arr.forEach(el => {
             const markup = this.#generateMarkup(el);
             this.#parentEl.insertAdjacentHTML('afterbegin', markup)
+            document.querySelector(".bookmarks-container").addEventListener('click', function(e) {
+                cepView.render(el)
+            })
         });
     }
 
