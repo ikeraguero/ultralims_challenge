@@ -1,4 +1,4 @@
-import { getJSON } from "./helper"
+import { getJSON } from "./helper.js"
 
 export const state = {
     cep: {}

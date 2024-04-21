@@ -13,7 +13,6 @@ const controlCep = async function() {
         cepView.renderSpinner()
         const cep = await model.loadCep(id)
         if(!cep.cep) throw new Error("Error");
-        console.log(cep);
         
         cepView.render(cep)
         

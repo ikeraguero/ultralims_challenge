@@ -599,7 +599,6 @@ const controlCep = async function() {
         (0, _cepViewJsDefault.default).renderSpinner();
         const cep = await _modelJs.loadCep(id);
         if (!cep.cep) throw new Error("Error");
-        console.log(cep);
         (0, _cepViewJsDefault.default).render(cep);
     } catch (err) {
         console.log(err);
@@ -712,10 +711,11 @@ class SearchView {
         return this.#parentEl.querySelector(".search-input").value;
     }
     addSearchHandler(handler) {
-        this.#parentEl.addEventListener("submit", function(e) {
+        this.#parentEl.addEventListener("submit", (function(e) {
             e.preventDefault();
             handler();
-        });
+            this.#parentEl.querySelector(".search-input").value = "";
+        }).bind(this));
     }
 }
 exports.default = new SearchView;

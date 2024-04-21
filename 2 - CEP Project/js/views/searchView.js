@@ -1,5 +1,3 @@
-import cepView from "./cepView"
-
 class SearchView {
     #parentEl = document.querySelector('.search-form')
     getCepNumber() {
@@ -10,7 +8,8 @@ class SearchView {
         this.#parentEl.addEventListener('submit', function(e) {
             e.preventDefault()
             handler()
-        })
+            this.#parentEl.querySelector(".search-input").value = '';
+        }.bind(this))
     }
 }
 

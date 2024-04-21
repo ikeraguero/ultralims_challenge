@@ -1,5 +1,4 @@
-import { bookmarks } from "../model";
-import cepView from "./cepView";
+import cepView from "./cepView.js";
 
 class BookmarksView {
     #parentEl = document.querySelector('.saved-list')

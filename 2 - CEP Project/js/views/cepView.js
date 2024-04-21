@@ -1,6 +1,6 @@
-import { bookmarks } from "../model";
-import { updateBookmarksInLocalStorage } from "../model";
-import bookmarksView from "./bookmarksView";
+import { bookmarks } from "../model.js";
+import { updateBookmarksInLocalStorage } from "../model.js";
+import bookmarksView from "./bookmarksView.js";
 import icons from '../../img/icons.svg'
 
 class CepView {
@@ -53,10 +53,7 @@ class CepView {
         const markup = this.#generateMarkup(data);
         this.#clear()
         this.#parentEl.insertAdjacentHTML('afterbegin', markup)
-        // Check if the data is already saved as bookmark
         const isSaved = bookmarks.some(bookmark => bookmark.cep === data.cep);
-        
-        // If data is already saved, remove the save button
         if (isSaved) {
             const saveButton = document.querySelector('.save-button');
             if (saveButton) saveButton.remove();
