@@ -86,6 +86,7 @@ class CepView {
         bookmarks.push(this.data)
         updateBookmarksInLocalStorage();
         bookmarksView.renderBookmarks(bookmarks)
+        this.render(this.data)
     }
 }
 

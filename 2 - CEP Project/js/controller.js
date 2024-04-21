@@ -8,10 +8,11 @@ import bookmarksView from './views/bookmarksView.js'
 const controlCep = async function() {
     try {
         const id = searchView.getCepNumber()
-        if(!id) return
+        if(!id) throw new Error("Error");
 
         cepView.renderSpinner()
         const cep = await model.loadCep(id)
+        if(!cep.cep) throw new Error("Error");
         console.log(cep);
         
         cepView.render(cep)

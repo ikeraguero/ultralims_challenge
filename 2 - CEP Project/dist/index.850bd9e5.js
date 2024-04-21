@@ -595,9 +595,10 @@ var _bookmarksViewJsDefault = parcelHelpers.interopDefault(_bookmarksViewJs);
 const controlCep = async function() {
     try {
         const id = (0, _searchViewJsDefault.default).getCepNumber();
-        if (!id) return;
+        if (!id) throw new Error("Error");
         (0, _cepViewJsDefault.default).renderSpinner();
         const cep = await _modelJs.loadCep(id);
+        if (!cep.cep) throw new Error("Error");
         console.log(cep);
         (0, _cepViewJsDefault.default).render(cep);
     } catch (err) {
@@ -703,6 +704,8 @@ exports.export = function(dest, destName, get) {
 },{}],"jYSxB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+var _cepView = require("./cepView");
+var _cepViewDefault = parcelHelpers.interopDefault(_cepView);
 class SearchView {
     #parentEl = document.querySelector(".search-form");
     getCepNumber() {
@@ -717,7 +720,7 @@ class SearchView {
 }
 exports.default = new SearchView;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gr5ws":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./cepView":"gr5ws"}],"gr5ws":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _model = require("../model");
@@ -794,6 +797,7 @@ class CepView {
         (0, _model.bookmarks).push(this.data);
         (0, _model.updateBookmarksInLocalStorage)();
         (0, _bookmarksViewDefault.default).renderBookmarks((0, _model.bookmarks));
+        this.render(this.data);
     }
 }
 exports.default = new CepView;

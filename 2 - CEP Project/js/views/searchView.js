@@ -1,3 +1,5 @@
+import cepView from "./cepView"
+
 class SearchView {
     #parentEl = document.querySelector('.search-form')
     getCepNumber() {
